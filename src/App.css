@@ -1,11 +1,21 @@
 .instructions {
+  padding: 50px;
   text-align: left;
+  margin: 0;
+}
+
+.instructions--list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+
 h1, h2, h3, h4 {
   color: #4a4a4a;
   text-transform: capitalize;
+}
+
+h3 {
+  size: 20px,
 }

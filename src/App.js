@@ -11,9 +11,9 @@ const instructions = {
   main: 'Box breathing is a technique used to calm yourself down with a simple 4 second rotation of breathing in, holding your breath, breathing out, holding your breath, and repeating.',
   header: 'instructions',
   one: '1. Inhale for 4 seconds (as the circle expands)',
-  two: '2. Hold your lungs full for 4 seconds (as the circle stays fully expanded)',
+  two: '2. Hold your breath full for 4 seconds (as the circle stays fully expanded)',
   three: '3. Exhale for 4 seconds (as the circle shrinks)',
-  four: '4. Hold your lungs empty for 4 seconds (as the circle is contracted)'
+  four: '4. Hold your breath empty for 4 seconds (as the circle contracts)'
 }
 
 const guide = {
@@ -25,10 +25,10 @@ const guide = {
 class Instructions extends Component {
   render() {
     return(
-      <div>
+      <div className="instructions">
         <p>{instructions.main}</p>
         <h3>{instructions.header}</h3>
-        <ul className="instructions">
+        <ul className="instructions--list">
           <li>{instructions.one}</li>
           <li>{instructions.two}</li>
           <li>{instructions.three}</li>
@@ -53,11 +53,25 @@ class OfflineView extends Component {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isInstructions: false,
+    }
+  }
+
+  toggleInstructions = () => {
+    this.setState({ isInstructions: !this.state.isInstructions })
+  }
+
   render() {
     return (
       <div className="App">
         <Online>
-          <Instructions />
+          <button onClick={this.toggleInstructions}>
+            { this.state.isInstructions ? 'x' : '?' }
+          </button>
+          {this.state.isInstructions ? <Instructions /> : <div></div>}
         </Online>
         <Offline>
         </Offline>
