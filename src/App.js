@@ -72,8 +72,19 @@ class App extends Component {
             { this.state.isInstructions ? 'x' : '?' }
           </button>
           {this.state.isInstructions ? <Instructions /> : <div></div>}
+          <div className="breath">
+            <div className="breath--svgs">
+              <svg height="200" width="200" viewbox="00 0 100 100">
+                <circle cx="100" cy="100" r="100" stroke-width="0" fill="#3CBEB5" />
+              </svg>
+              <svg height="200" width="200" viewbox="00 0 100 100">
+                <circle cx="100" cy="100" r="104" stroke="#979797" stroke-width="4" fill="none" />
+              </svg>
+            </div>
+          </div>
         </Online>
         <Offline>
+          <OfflineView />
         </Offline>
       </div>
     );
