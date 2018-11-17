@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import styled, { keyframes } from 'styled-components'
 
 import { Offline, Online } from 'react-detect-offline'
 
@@ -21,6 +22,37 @@ const guide = {
   hold: 'hold',
   exhale: 'exhale',
 }
+
+const breathAnimation = keyframes`
+  0% {
+    transform: scaleX(1), scaleY(1);
+  }
+
+  25% {
+    transform: scaleX(2), scaleY(2);
+  }
+  
+  50% {
+    transform: scaleX(3), scaleY(3);
+  }
+
+  75% {
+    transform: scaleX(2), scaleY(2);
+  }
+
+  100% {
+    transform: scaleX(1), scaleY(1);
+  }
+`
+
+const __breath = styled.circle`
+  animation: ${breathAnimation};
+  animation-duration: 16s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+`
 
 class Instructions extends Component {
   render() {
@@ -74,9 +106,10 @@ class App extends Component {
           {this.state.isInstructions ? <Instructions /> : <div></div>}
           <div className="breath">
             <div className="breath--svgs">
-              <svg height="200" width="200" viewbox="00 0 100 100">
+              <__breath cx="100" cy="50%" r="50%" />
+              {/* <svg height="200" width="200" viewbox="00 0 100 100">
                 <circle cx="100" cy="100" r="100" stroke-width="0" fill="#3CBEB5" />
-              </svg>
+              </svg> */}
               <svg height="200" width="200" viewbox="00 0 100 100">
                 <circle cx="100" cy="100" r="104" stroke="#979797" stroke-width="4" fill="none" />
               </svg>
