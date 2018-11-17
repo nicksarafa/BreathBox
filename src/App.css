@@ -10,12 +10,14 @@
   top: 0;
   bottom: 0;
   margin: auto;
+  z-index: -1;
 }
 
 .instructions {
   padding: 50px;
   text-align: left;
   margin: 0;
+  background: white;
 }
 
 .instructions--list {

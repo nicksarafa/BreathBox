@@ -23,7 +23,30 @@ const guide = {
   exhale: 'exhale',
 }
 
-const breathAnimation = keyframes`
+const breathColor = keyframes`
+  0% {
+    fill: #3cbeb5;
+  }
+
+  25% {
+    fill: #3cbeb5;
+  }
+  
+  50% {
+    fill: #3cbeb5;
+  }
+
+  75% {
+    fill: #3cbeb5;
+  }
+
+  100% {
+    fill: #3cbeb5;
+  }
+`
+
+
+const breathTransform = keyframes`
   0% {
     transform: scaleX(1), scaleY(1);
   }
@@ -46,7 +69,7 @@ const breathAnimation = keyframes`
 `
 
 const __breath = styled.circle`
-  animation: ${breathAnimation};
+  animation: ${breathTransform}, ${breathColor};
   animation-duration: 16s;
   animation-iteration-count: infinite;
   transform-origin: 50% 50%;
@@ -100,20 +123,17 @@ class App extends Component {
     return (
       <div className="App">
         <Online>
-          <button onClick={this.toggleInstructions}>
-            { this.state.isInstructions ? 'x' : '?' }
-          </button>
-          {this.state.isInstructions ? <Instructions /> : <div></div>}
           <div className="breath">
             <div className="breath--svgs">
-              <__breath cx="100" cy="50%" r="50%" />
-              {/* <svg height="200" width="200" viewbox="00 0 100 100">
-                <circle cx="100" cy="100" r="100" stroke-width="0" fill="#3CBEB5" />
-              </svg> */}
-              <svg height="200" width="200" viewbox="00 0 100 100">
+              <svg height="200" width="200">
+                <__breath cx="50%" cy="50%" r="46" />
                 <circle cx="100" cy="100" r="104" stroke="#979797" stroke-width="4" fill="none" />
               </svg>
             </div>
+            <button onClick={this.toggleInstructions}>
+              { this.state.isInstructions ? 'x' : '?' }
+            </button>
+            {this.state.isInstructions ? <Instructions /> : <div></div>}
           </div>
         </Online>
         <Offline>
