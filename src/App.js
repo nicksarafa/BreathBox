@@ -49,6 +49,7 @@ const breathColor = keyframes`
 const breathTransform = keyframes`
   0% {
     transform: scaleX(1), scaleY(1);
+    -webkit-transform: scaleX(1), scaleY(1);
   }
 
   25% {
@@ -69,7 +70,7 @@ const breathTransform = keyframes`
 `
 
 const __breath = styled.circle`
-  animation: ${breathTransform}, ${breathColor};
+  animation: ${breathColor}, ${breathTransform};
   animation-duration: 16s;
   animation-iteration-count: infinite;
   transform-origin: 50% 50%;
@@ -125,9 +126,9 @@ class App extends Component {
         <Online>
           <div className="breath">
             <div className="breath--svgs">
-              <svg height="200" width="200">
+              <svg height="300" width="300" viewBox="0 0 300 300" preserveAspectRatio="MidXMidY meet">
                 <__breath cx="50%" cy="50%" r="46" />
-                <circle cx="100" cy="100" r="104" stroke="#979797" stroke-width="4" fill="none" />
+                <circle cx="50%" cy="50%" r="104" stroke="#979797" stroke-width="4" fill="none" />
               </svg>
             </div>
             <button onClick={this.toggleInstructions}>
