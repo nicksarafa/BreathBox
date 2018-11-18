@@ -9,18 +9,13 @@ const common = {
 }
 
 const instructions = {
+  title: 'Box Breathing',
   main: 'Box breathing is a technique used to calm yourself down with a simple 4 second rotation of breathing in, holding your breath, breathing out, holding your breath, and repeating.',
   header: 'instructions',
   one: '1. Inhale for 4 seconds (as the circle expands)',
   two: '2. Hold your breath full for 4 seconds (as the circle stays fully expanded)',
   three: '3. Exhale for 4 seconds (as the circle shrinks)',
   four: '4. Hold your breath empty for 4 seconds (as the circle contracts)'
-}
-
-const guide = {
-  inhale: 'inhale',
-  hold: 'hold',
-  exhale: 'exhale',
 }
 
 const breathColor = keyframes`
@@ -80,6 +75,7 @@ class Instructions extends Component {
   render() {
     return(
       <div className="instructions">
+        <h3>{instructions.title}</h3>
         <p>{instructions.main}</p>
         <h3>{instructions.header}</h3>
         <ul className="instructions--list">
@@ -129,7 +125,7 @@ class App extends Component {
                 <circle cx="50%" cy="50%" r="144" stroke="#979797" stroke-width="4" fill="none" />
               </svg>
             </div>
-            <button onClick={this.toggleInstructions}>
+            <button className="instruction--button" onClick={this.toggleInstructions}>
               { this.state.isInstructions ? 'x' : '?' }
             </button>
             {this.state.isInstructions ? <Instructions /> : <div></div>}
