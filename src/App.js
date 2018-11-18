@@ -52,15 +52,15 @@ const breathTransform = keyframes`
   }
 
   25% {
-    transform: scale(2);
+    transform: scale(3);
   }
-  
+
   50% {
     transform: scale(3);
   }
 
   75% {
-    transform: scale(2);
+    transform: scale(1);
   }
 
   100% {
@@ -73,7 +73,6 @@ const __breath = styled.circle`
   animation-duration: 16s;
   animation-iteration-count: infinite;
   transform-origin: 50% 50%;
-  animation-direction: alternate;
   animation-timing-function: linear;
 `
 
